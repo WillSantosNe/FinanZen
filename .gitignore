@@ -1,0 +1,36 @@
+# Java Compiled Files
+*.class
+
+# Maven
+target/
+*.jar
+*.war
+*.ear
+
+# Other Build Locations
+bin/
+build/
+
+# IDE / Editor Files
+# Antigravity & Gemini
+.antigravity/
+.gemini/
+
+# VS Code / Common
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.settings/
+.classpath
+.project
+
+# OS System Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
