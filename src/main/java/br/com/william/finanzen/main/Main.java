@@ -1,4 +1,4 @@
-package br.com.william;
+package br.com.william.finanzen.main;
 
 public class Main {
     public static void main(String[] args) {
