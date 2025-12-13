@@ -67,3 +67,35 @@ Este projeto utiliza **Maven** para build e gerenciamento de dependências.
 1. **Clone o repositório:**
    ```bash
    git clone [https://github.com/SEU-USUARIO/finanzen-core.git](https://github.com/SEU-USUARIO/finanzen-core.git)
+
+2.  **Entre na pasta:**
+
+    ```bash
+    cd finanzen-core
+    ```
+
+3.  **Compile o projeto (Build):**
+
+    ```bash
+    mvn clean package
+    ```
+
+    *Isso baixará as dependências, compilará o código e verificará se não há erros.*
+
+4.  **Execute a aplicação:**
+
+    ```bash
+    java -cp target/classes br.com.william.finanzen.main.Main
+    ```
+
+    *Ou execute diretamente pela sua IDE (IntelliJ/VS Code) rodando a classe `Main`.*
+
+    
+-----
+
+## Autor
+
+**William Santos** - 
+*Engenheiro de Software Backend em especialização na Arquitetura Java e Ecossistema Spring.*
+
+
