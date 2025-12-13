@@ -3,7 +3,22 @@ package br.com.william.finanzen.model;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Transacao {
+/**
+ * Representa uma transação financeira no sistema.
+ * <p>
+ * Esta classe é responsável por armazenar os dados de uma movimentação
+ * financeira,
+ * como valor, data, descrição e tipo.
+ * </p>
+ * <p>
+ * Implementa {@link Comparable} para permitir a ordenação natural cronológica
+ * (da data mais antiga para a mais recente).
+ * </p>
+ *
+ * @author FinanZen Team
+ * @since 1.0
+ */
+public class Transacao implements Comparable<Transacao> {
 
     // Posteriormente implementar um ID
     private String descricao;
@@ -24,6 +39,22 @@ public class Transacao {
 
     public String getTipo() {
         return tipo;
+    }
+
+    /**
+     * Compara esta transação com outra para fins de ordenação.
+     * <p>
+     * A regra de ordenação natural é <b>CRONOLÓGICA</b>, ou seja,
+     * as transações são ordenadas da data mais antiga para a mais recente.
+     * </p>
+     *
+     * @param outra A transação a ser comparada.
+     * @return Um inteiro negativo, zero ou positivo se esta transação for
+     *         anterior, igual ou posterior à transação comparada, respectivamente.
+     */
+    @Override
+    public int compareTo(Transacao outra) {
+        return this.data.compareTo(outra.data);
     }
 
     @Override
