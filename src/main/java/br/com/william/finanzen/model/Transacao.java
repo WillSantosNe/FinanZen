@@ -24,21 +24,21 @@ public class Transacao implements Comparable<Transacao> {
     private String descricao;
     private BigDecimal valor; // Uso correto de guardar dados de dinheiro
     private LocalDate data;
-    private String tipo; // Posteriormente implementar um Enum
+    private Categoria categoria;
 
-    public Transacao(String descricao, BigDecimal valor, LocalDate data, String tipo) {
+    public Transacao(String descricao, BigDecimal valor, LocalDate data, Categoria categoria) {
         this.descricao = descricao;
         this.valor = valor;
         this.data = data;
-        this.tipo = tipo;
+        this.categoria = categoria;
     }
 
     public BigDecimal getValor() {
         return valor;
     }
 
-    public String getTipo() {
-        return tipo;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
     /**
@@ -63,7 +63,7 @@ public class Transacao implements Comparable<Transacao> {
                 "descricao='" + descricao + '\'' +
                 ", valor=" + valor +
                 ", data=" + data +
-                ", tipo='" + tipo + '\'' +
+                ", categoria='" + categoria + '\'' +
                 '}';
     }
 }

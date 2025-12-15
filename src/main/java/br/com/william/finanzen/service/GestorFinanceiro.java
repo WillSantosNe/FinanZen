@@ -1,6 +1,7 @@
 package br.com.william.finanzen.service;
 
 import br.com.william.finanzen.model.Transacao;
+import br.com.william.finanzen.model.Categoria;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -41,9 +42,13 @@ public class GestorFinanceiro {
         BigDecimal saldo = BigDecimal.ZERO;
 
         for (Transacao t : this.transacoes) {
-            if (t.getTipo().equals("RECEITA")) {
+            // Se for RECEITA, soma; caso contrário (DESPESA, etc), subtrai ou ignora.
+            // Assumindo que tudo que não é RECEITA é saída, ou podemos ser explícitos.
+            if (t.getCategoria() == Categoria.RECEITA) {
                 saldo = saldo.add(t.getValor());
-            } else if (t.getTipo().equals("DESPESA")) {
+            } else {
+                // Aqui podemos considerar outras categorias de entrada se existirem,
+                // mas por enquanto assumimos que o resto são gastos.
                 saldo = saldo.subtract(t.getValor());
             }
         }
@@ -68,5 +73,25 @@ public class GestorFinanceiro {
         return this.transacoes.stream()
                 .sorted(Comparator.comparing(Transacao::getValor).reversed())
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * Agrupa o total dos valores das transações por categoria.
+     * <p>
+     * Este método itera sobre a lista de transações e acumula os valores
+     * correspondentes a cada categoria em um Map.
+     * </p>
+     *
+     * @return Um Map onde a chave é a categoria e o valor é a soma total
+     *         (BigDecimal).
+     */
+    public java.util.Map<Categoria, BigDecimal> agruparTotalPorCategoria() {
+        java.util.Map<Categoria, BigDecimal> totalPorCategoria = new java.util.HashMap<>();
+
+        for (Transacao t : this.transacoes) {
+            totalPorCategoria.merge(t.getCategoria(), t.getValor(), BigDecimal::add);
+        }
+
+        return totalPorCategoria;
     }
 }
