@@ -2,7 +2,7 @@
 
 ![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Build](https://img.shields.io/badge/Build-Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Fase_1:_Core_Logic-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Fase_2:_Integration_&_APIs-blueviolet?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
 > **"A eficiência de um sistema financeiro começa na robustez de suas estruturas de dados."**
@@ -22,36 +22,38 @@ O objetivo é simular a complexidade de sistemas reais (conciliação, categoriz
 ## Roadmap de Evolução (A Estratégia)
 Este projeto segue a trilha "Antigravity" de maturidade técnica:
 
-### Fase 1: The Core (Estágio Atual)
+### Fase 1: The Core (Concluído ✅)
 Foco em **Lógica de Negócio e Estruturas de Dados em Memória**.
 - [x] Setup do projeto com **Maven** (Padrão Industrial).
 - [x] Modelagem de Domínio (`Transacao`, `GestorFinanceiro`).
 - [x] Implementação de "Banco em Memória" utilizando `Collections` (List, Map).
 - [x] Algoritmos de ordenação e filtros (uso de `Comparator` e `Streams`).
 
-### Fase 2: The Framework
+### Fase 2: The Integration (Estágio Atual 🚧)
+Conectando o sistema ao mundo real e blindando contra falhas.
+- [ ] Consumo de APIs Externas (Cotação de Moedas via HTTP Client).
+- [ ] Deserialização de JSON e Mapeamento de DTOs (Records).
+- [ ] Tratamento Robusto de Erros (Checked vs Unchecked Exceptions).
+- [ ] Manipulação segura de Arquivos e Streams (I/O).
+
+### Fase 3: The Framework
 Profissionalização com o ecossistema **Spring**.
 - [ ] Persistência robusta com **Spring Data JPA** e Banco Relacional.
 - [ ] Exposição de API RESTful.
 - [ ] Injeção de Dependência e Inversão de Controle.
 
-### Fase 3: The Scale
-Foco em resiliência e **Sistemas Distribuídos**.
+### Fase 4: The Scale & AI
+Foco em resiliência, sistemas distribuídos e inovação.
 - [ ] Containerização com **Docker**.
-- [ ] Comunicação assíncrona (Mensageria).
-- [ ] Job de consolidação com **Spring Batch**.
-
-### Fase 4: Antigravity (AI-Native)
-Foco em inovação e **Inteligência Artificial**.
-- [ ] Integração com LLMs via **Spring AI**.
-- [ ] Chatbot para consulta de gastos em linguagem natural (RAG).
+- [ ] Integração com LLMs via **Spring AI** (Chatbot Financeiro).
 
 ---
 
-## Tecnologias (Fase 1)
+## Tecnologias
 * **Linguagem:** Java 21 (LTS).
 * **Gerenciador de Dependências:** Apache Maven.
 * **Core Concepts:** POO, Collections Framework, Clean Code.
+* **Integração:** Java.net.http (HttpClient), JSON Parsing.
 
 ---
 
