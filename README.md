@@ -22,14 +22,14 @@ O objetivo é simular a complexidade de sistemas reais (conciliação, categoriz
 ## Roadmap de Evolução (A Estratégia)
 Este projeto segue a trilha "Antigravity" de maturidade técnica:
 
-### Fase 1: The Core (Concluído ✅)
+### Fase 1: The Core (Concluído)
 Foco em **Lógica de Negócio e Estruturas de Dados em Memória**.
 - [x] Setup do projeto com **Maven** (Padrão Industrial).
 - [x] Modelagem de Domínio (`Transacao`, `GestorFinanceiro`).
 - [x] Implementação de "Banco em Memória" utilizando `Collections` (List, Map).
 - [x] Algoritmos de ordenação e filtros (uso de `Comparator` e `Streams`).
 
-### Fase 2: The Integration (Estágio Atual 🚧)
+### Fase 2: The Integration (Estágio Atual)
 Conectando o sistema ao mundo real e blindando contra falhas.
 - [ ] Consumo de APIs Externas (Cotação de Moedas via HTTP Client).
 - [ ] Deserialização de JSON e Mapeamento de DTOs (Records).
