@@ -26,8 +26,8 @@ Este projeto segue a trilha "Antigravity" de maturidade técnica:
 Foco em **Lógica de Negócio e Estruturas de Dados em Memória**.
 - [x] Setup do projeto com **Maven** (Padrão Industrial).
 - [x] Modelagem de Domínio (`Transacao`, `GestorFinanceiro`).
-- [ ] Implementação de "Banco em Memória" utilizando `Collections` (List, Map).
-- [ ] Algoritmos de ordenação e filtros (uso de `Comparator` e `Streams`).
+- [x] Implementação de "Banco em Memória" utilizando `Collections` (List, Map).
+- [x] Algoritmos de ordenação e filtros (uso de `Comparator` e `Streams`).
 
 ### Fase 2: The Framework
 Profissionalização com o ecossistema **Spring**.
