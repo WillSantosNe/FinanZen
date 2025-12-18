@@ -6,6 +6,7 @@ import br.com.william.finanzen.service.GestorFinanceiro;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,7 +31,7 @@ public class Main {
 
         System.out.println("--------------------------------");
         System.out.println("Relatório por Categoria:");
-        java.util.Map<Categoria, BigDecimal> relatorio = banco.agruparTotalPorCategoria();
+        Map<Categoria, BigDecimal> relatorio = banco.agruparTotalPorCategoria();
         relatorio.forEach((categoria, total) -> System.out.println(categoria + ": R$ " + total));
     }
 }
