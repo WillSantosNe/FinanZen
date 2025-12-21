@@ -1,6 +1,7 @@
 package br.com.william.finanzen;
 
 import br.com.william.finanzen.dto.CotacaoDTO;
+import br.com.william.finanzen.exception.ErroConsultaCambioException;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -48,6 +49,9 @@ public class TesteIntegracaoCambio {
                 JsonObject rootObject = JsonParser.parseString(json).getAsJsonObject();
 
                 // Obtendo a chave dinâmica (chave do JSON)
+                if (rootObject.isEmpty()) {
+                    throw new ErroConsultaCambioException("Moeda não encontrada ou resposta inválida.");
+                }
                 String dynamicKey = rootObject.keySet().iterator().next();
 
                 // Obtendo o objeto de dentro da chave (valores da moeda)
@@ -62,13 +66,11 @@ public class TesteIntegracaoCambio {
                 System.out.printf("Data: %s%n", cotacao.dataHora());
 
             } else {
-                System.out.println("Erro na consulta. Código HTTP: " + response.statusCode());
-                System.out.println("Corpo: " + response.body());
+                throw new ErroConsultaCambioException("Falha ao buscar cotação. Verifique a moeda.");
             }
 
         } catch (IOException | InterruptedException e) {
-            System.out.println("Erro de conexão ou interrupção durante a chamada da API.");
-            System.out.println("Detalhes: " + e.getMessage());
+            throw new ErroConsultaCambioException("Erro de conexão: " + e.getMessage());
         } finally {
             scanner.close();
         }
