@@ -2,7 +2,6 @@
 
 ![Java](https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Build](https://img.shields.io/badge/Build-Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Fase_1:_Core_Logic-yellow?style=for-the-badge)
 
 
 > **"A eficiência de um sistema financeiro começa na robustez de suas estruturas de dados."**
@@ -23,15 +22,15 @@ O objetivo é simular a complexidade de sistemas reais (conciliação, categoriz
 
 Este projeto segue uma progressão de maturidade técnica inspirada em sistemas bancários de alta disponibilidade.
 
-### Fase 1: The Core (Estágio Atual)
+### Fase 1: The Core 
 *Foco: Pureza do Domínio e Lógica de Negócio.*
 - [x] **Setup Industrial:** Estruturação de projeto via Maven.
 - [x] **Precision Domain:** Modelagem com `BigDecimal` e Imutabilidade.
 - [x] **Data Processing:** Algoritmos de ordenação e filtros via `Streams API`.
 
-### Fase 2: Integration & Containers
+### Fase 2: Integration & Containers (Estágio Atual)
 *Foco: Conectividade, Resiliência e Infraestrutura como Código.*
-- [ ] **External APIs:** Consumo de câmbio via `HttpClient` (Java Nativo).
+- [x] **External APIs:** Consumo de câmbio via `HttpClient` (Java Nativo).
 - [ ] **Containerization:** Setup de ambiente de desenvolvimento via **Docker**.
 - [ ] **Robust Exceptions:** Hierarquia de erros (Business vs. Infrastructure).
 - [ ] **JSON Mapping:** Desserialização performática de dados externos.
