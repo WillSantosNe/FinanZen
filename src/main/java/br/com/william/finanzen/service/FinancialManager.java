@@ -21,9 +21,11 @@ public class FinancialManager {
      * Optei pelo uso de Map para melhor performance de pesquisa
      */
     private Map<Long, Transaction> transactions;
+    private final CurrencyService currencyService;
 
     public FinancialManager(){
         this.transactions = new HashMap<>();
+        this.currencyService = new CurrencyService();
     }
 
     /**
@@ -81,5 +83,23 @@ public class FinancialManager {
         })
         .reduce(BigDecimal.ZERO, BigDecimal::add)
         .setScale(2,RoundingMode.HALF_EVEN);
+    }
+
+    /**
+     * Converte determinado valor BRL em USD usando a cotação atual da API externa.
+     * 
+     * @param balanceInBRL
+     * @return
+     */
+    public BigDecimal convertBalanceToUSD(BigDecimal balanceInBRL){
+        BigDecimal rate = currencyService.getCurrentyUSDRate();
+
+        // Validação para evitar divisão por zero - resiliencia
+        if(rate.compareTo(BigDecimal.ZERO) == 0){
+            return BigDecimal.ZERO;
+        }
+
+        // Usando arredondamento HALF_EVEN - padrões bancários
+        return balanceInBRL.divide(rate, 2, RoundingMode.HALF_EVEN);
     }
 }

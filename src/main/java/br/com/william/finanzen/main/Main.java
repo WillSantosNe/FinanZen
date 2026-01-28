@@ -3,6 +3,7 @@ package br.com.william.finanzen.main;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import br.com.william.finanzen.exception.IntegrationException;
 import br.com.william.finanzen.model.CategoryEnum;
 import br.com.william.finanzen.model.Transaction;
 import br.com.william.finanzen.service.FinancialManager;
@@ -29,7 +30,7 @@ public class Main {
 
         System.out.println("Transactions added successfully!" + "\n");
 
-        System.out.println("Calculating Total Balance...");
+        System.out.println("Calculating Total Balance2949...");
         System.out.println("Current Balance: R$ " + manager.calculateTotalBalance() + "\n");
 
         System.out.println("Retrieving transaction by ID 3...");
@@ -37,6 +38,17 @@ public class Main {
 
         System.out.println("Listing only EXPENSES: ");
         manager.getListByCategory(CategoryEnum.EXPENSE).forEach(t -> System.out.println("   " + t));
+
+
+        System.out.println("\nConverting Total Balance to USD...");
+        try {
+            BigDecimal totalBalanceBRL = manager.calculateTotalBalance();
+            BigDecimal totalBalanceUSD = manager.convertBalanceToUSD(totalBalanceBRL);
+            System.out.println("Current Balance: R$ " + totalBalanceBRL + " -> US$ " + totalBalanceUSD);
+        } catch (IntegrationException e) {
+            System.err.println("Failed to convert currency: " + e.getMessage());
+        }
+
 
         System.out.println("\n--- EXECUTION FINISHED ---");
     }
